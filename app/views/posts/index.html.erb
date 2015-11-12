@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing posts</h1>
+ <table id="posts-list"> 
+  <tr> 
+    <th>Title</th> 
+    <th>Content</th> 
+    <th>Post time</th>
+     <th></th> 
+     <th></th> 
+     <th></th> 
+   </tr> 
+
+   <% @posts.each do |post| %>
+   <tr> 
+    <td><%= post.title %></td>
+    <td><%= post.content %></td> 
+    <td><%= post.post_time %></td> 
+    <td><%= link_to 'Show', post,id:"#{post.id}_show" %></td> 
+    <td><%= link_to 'Edit',edit_post_path(post),id:"#{post.id}_edit" %></td> %></td> 
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' ,id:"#{post.id}_delete"} %></td> 
+  </tr> 
+  <% end %> 
+</table> 
+
+<br />
+ <%= link_to 'New Post', new_post_path %>
